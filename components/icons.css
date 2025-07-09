@@ -1,0 +1,11 @@
+.options {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 3px;
+    padding: 7px;
+}
+.options:hover{
+    background-color: rgba(131, 131, 131, 0.315);
+}

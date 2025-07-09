@@ -1,0 +1,91 @@
+.toolbar {
+    display: flex;
+    flex-direction: row;
+    background-color: rgb(162, 162, 168);
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 40px;
+}
+.left-toolbar {
+    justify-content: flex-start;
+    display: flex;
+    align-items: center;
+    /* background-color: green; */
+    position: absolute;
+    left: 0;
+    height: 40px;
+}
+.left-toolbar img   {
+    margin: 10px;
+    justify-content: flex-start;
+}
+.right-toolbar {
+    /* background-color: red; */
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    position: absolute;
+    right: 0;
+    height: 40px;
+}
+.right-toolbar img   {
+    margin: 10px;
+}
+
+.toolbar-icon {
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+}
+.toolbar-icon img{
+    position: relative;
+    bottom: 5px;
+    right: 3px;
+}
+.toolbar-icon:hover {
+    background-color: purple;
+}
+.toolbar-icon-active {
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    background-color: purple;
+}
+.toolbar-icon-active img {
+    position: relative;
+    bottom: 5px;
+    right: 3px;
+}
+
+.toolbar-input {
+    border-width: 10px;
+    border-color: red;
+    background-color: rgb(48, 48, 48);
+    justify-content: flex-start;
+    display: flex;
+    height: 40px;
+}
+.toolbar-input input {
+    background-color: rgb(48, 48, 48);
+    color: white;
+    border-width: 0px;
+    padding: 7px;
+}
+
+.textbox {
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    height: 50px;
+    width: 100px;
+    margin-bottom: 90px;
+    word-wrap: break-word;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 10px;
+}
+.textbox p {
+    font-size:  x-small;
+}

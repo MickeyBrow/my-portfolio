@@ -1,0 +1,59 @@
+.modal {
+    background-color: blue;
+    position: fixed;
+    width: 500px;
+    height: 500px;
+}
+.modal-fullscreen {
+    background-color: blue;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+
+.topBar-fullscreen {
+    background-color: grey;
+    display: flex;
+    flex-direction: row;
+    height: 5%;
+    width: 100%;
+    align-items: center;
+}
+.topBar-fullscreen .controls {
+    justify-content: flex-end;
+    position: absolute;
+    right: 0;
+}
+.topBar-fullscreen .controls-btn {
+    background-color: grey;
+    border-radius: 5px;
+    border-color: black;
+    
+}
+
+.topBar {
+    background-color: grey;
+    display: flex;
+    flex-direction: row;
+    height: 7%;
+    width: 90%;
+    align-items: center;
+    border-style: solid;
+    border-width: 3px;
+    border-color:black;
+}
+.topBar .controls {
+    justify-content: flex-end;
+    position: absolute;
+    right: 0;
+}
+.topBar .controls-btn {
+    background-color: grey;
+    border-radius: 5px;
+    border-color: black; 
+    border-width: 3px;
+}
