@@ -13,19 +13,18 @@ import AboutModal from '../components/about-modal-content.jsx'
 
 function App() {
   const [mainModal, setMainModal] = useState(null)
-  const [iconLookup, setIconLookup] = useState({"Contact": "none", "Projects": "none", "About": "none"})
-
+  const [iconLookup, setIconLookup] = useState({"Contact": "none", "Projects": "none", "About": "none"})  
+  
   const icons_data = {
     "Contact": [contact, "Contact"],
     "Projects": [projects, "Projects"],
     "About": [about, "About Me!"]
   }
-  
 
   function handleClick(opt) {
     let background = []
     let active = []
-    let placeholder = {"Contact": iconLookup["Projects"], "Projects": iconLookup["Projects"], "About": iconLookup["About"]}
+    let placeholder = {...iconLookup}
 
     if (mainModal) {
       switch(mainModal[0]) {
