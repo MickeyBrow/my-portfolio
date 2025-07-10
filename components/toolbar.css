@@ -58,6 +58,17 @@
     bottom: 5px;
     right: 3px;
 }
+.toolbar-icon-background {
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    background-color: rgba(161, 0, 161, 0.418);
+}
+.toolbar-icon-background img {
+    position: relative;
+    bottom: 5px;
+    right: 3px;
+}
 
 .toolbar-input {
     border-width: 10px;

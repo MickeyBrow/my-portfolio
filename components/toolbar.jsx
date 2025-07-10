@@ -1,19 +1,30 @@
-import { useState } from 'react'
+import React, { useState } from 'react'
 import speaker from '../src/assets/speaker.png'
 import wifi from '../src/assets/wifi.png'
 import start from '../src/assets/start.png'
 import resume from '../src/assets/resume.png'
 import './toolbar.css'
 
-function Toolbar({images, css_actives, clickFunc}) {
+function Toolbar({images, css_types, clickFunc}) {
     const [isHovering, setIsHovering] = useState(false)
 
     const handleMouseEnter = () => {
         setIsHovering(true);
     }
 
-      const handleMouseLeave = () => {
+    const handleMouseLeave = () => {
         setIsHovering(false);
+    }
+
+    const handleToolbarClass = (key) => {
+        switch(key) {
+            case "active":
+                return "toolbar-icon-active"
+            case "background":
+                return "toolbar-icon-background"
+            case "none":
+                return "toolbar-icon"
+        }
     }
 
     return (
@@ -30,11 +41,11 @@ function Toolbar({images, css_actives, clickFunc}) {
                         </div>
                     </div>
                     {Object.keys(images).map((key) => (
-                        <>
-                            <div key={key} className={css_actives[key] ? 'toolbar-icon-active' : 'toolbar-icon'}>
-                                <img src={images[key]} onClick={() => clickFunc(key)}/>
+                        <React.Fragment key={key}>
+                            <div className={handleToolbarClass(css_types[key])}>
+                                <img src={images[key][0]} onClick={() => clickFunc(key)}/>
                             </div>
-                        </>
+                        </React.Fragment>
                     ))}
                 </div>
                 <div className='right-toolbar'>

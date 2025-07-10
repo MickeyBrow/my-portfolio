@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import Icons from '../components/icons'
 import contact from '../src/assets/contact.png'
 import projects from '../src/assets/projects.png'
@@ -12,52 +12,66 @@ import ProjectsModal from '../components/projects-modal-content.jsx'
 import AboutModal from '../components/about-modal-content.jsx'
 
 function App() {
-  const [isContactOpen, setIsContactOpen] = useState(false)
-  const [isProjectsOpen, setIsProjectsOpen] = useState(false)
-  const [isAboutOpen, setIsAboutOpen] = useState(false)
-  const [isNewOrder, setIsNewOrder] = useState(false)
-  const modalRenderOrder = [[isContactOpen, <ContactModal />, "Contact Me!", () => setIsContactOpen(false)], [isProjectsOpen, <ProjectsModal/>, "My Projects", () =>setIsProjectsOpen(false)], [isAboutOpen, <AboutModal/>, "About Me!", () => setIsAboutOpen(false)]]
-
+  const [mainModal, setMainModal] = useState(null)
+  const [iconLookup, setIconLookup] = useState({"Contact": "none", "Projects": "none", "About": "none"})
 
   const icons_data = {
-    "Contact": contact,
-    "Projects": projects,
-    "About Me": about
+    "Contact": [contact, "Contact"],
+    "Projects": [projects, "Projects"],
+    "About": [about, "About Me!"]
   }
-  const icons_actives = {
-    "Contact": isContactOpen,
-    "Projects": isProjectsOpen,
-    "About Me": isAboutOpen
-  }
-
-  useEffect(() => {}, [isContactOpen, isProjectsOpen, isAboutOpen, isNewOrder])
   
 
   function handleClick(opt) {
+    let background = []
+    let active = []
+    let placeholder = {"Contact": iconLookup["Projects"], "Projects": iconLookup["Projects"], "About": iconLookup["About"]}
+
+    if (mainModal) {
+      switch(mainModal[0]) {
+        case "Contact":
+          background = ["Contact", "background"]
+          break
+        case "Projects":
+          background = ["Projects", "background"]
+          break
+        case "About":
+          background = ["About", "background"]
+          break 
+      }
+    }
+
     switch(opt) {
       case "Contact":
-        setIsContactOpen(true)
+        setMainModal(["Contact", <ContactModal/>])
+        active = ["Contact", "active"]
         break
       case "Projects":
-        setIsProjectsOpen(true)
+        setMainModal(["Projects", <ProjectsModal/>])
+        active = ["Projects", "active"]
         break
-      case "About Me":
-        setIsAboutOpen(true)
+      case "About":
+        setMainModal(["About", <AboutModal/>])
+        active = ["About", "active"]
         break
     }
+    if (background) placeholder[background[0]] = background[1]
+    placeholder[active[0]] = active[1]
+    setIconLookup(placeholder)
   }
 
-  function handleToolbarClick(key) {
-    switch(key) {
+  function handleClose(current) {
+    setMainModal(null)
+    switch(current[0]) {
       case "Contact":
-        setIsContactOpen(true)
+        setIconLookup({"Contact": "none", "Projects": iconLookup["Projects"], "About": iconLookup["About"]})
         break
       case "Projects":
-        setIsProjectsOpen(true)
+        setIconLookup({"Contact": iconLookup["Contact"], "Projects": "none", "About": iconLookup["About"]})
         break
-      case "About Me":
-        setIsAboutOpen(true)
-        break
+      case "About":
+        setIconLookup({"Contact": iconLookup["Contact"], "Projects": iconLookup["Projects"], "About": "none"})
+        break 
     }
   }
 
@@ -66,14 +80,15 @@ function App() {
       <div style={{backgroundColor: 'rgb(0, 160, 80)', height: '100vh', width: '100vw'}}>
         <div className='main'>
           {Object.keys(icons_data).map((key) => (
-            <Icons image={icons_data[key]} title={key} handleClicks={() => handleClick(key)}/>
+            <Icons key={key} image={icons_data[key][0]} title={icons_data[key][1]} handleClicks={() => handleClick(key)}/>
           ))}
         </div>
-        {modalRenderOrder.map((item, i) => item[0] && <DraggableResizeableModal id={`modal${i}`} title={item[2]} onClose={item[3]}>
-          {item[1]}
-        </DraggableResizeableModal>)}
+        {mainModal && 
+        <DraggableResizeableModal title={mainModal[0]} onClose={() => handleClose(mainModal)}>
+          {mainModal[1]}
+        </DraggableResizeableModal>}
         <div>
-          <Toolbar images={icons_data} css_actives={icons_actives} clickFunc={handleToolbarClick}/>
+          <Toolbar images={icons_data} css_types={iconLookup} clickFunc={handleClick}/>
         </div>
       </div>
     </>
