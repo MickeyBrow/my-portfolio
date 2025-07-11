@@ -5,7 +5,7 @@ import start from '../src/assets/start.png'
 import resume from '../src/assets/resume.png'
 import './toolbar.css'
 
-function Toolbar({images, css_types, clickFunc}) {
+function Toolbar({images, css_types, clickFunc, signOut}) {
     const [isHovering, setIsHovering] = useState(false)
 
     const handleMouseEnter = () => {
@@ -32,7 +32,7 @@ function Toolbar({images, css_types, clickFunc}) {
             <div className='toolbar'>
                 <div className='left-toolbar'>
                     <div className='toolbar-icon'>
-                        <img src={start} />
+                        <img src={start} onClick={signOut} />
                     </div>
                     <div className='toolbar-input'>
                         <input placeholder='Type here to search'/>
