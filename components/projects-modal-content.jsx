@@ -31,9 +31,11 @@ function ProjectsModal() {
         <div className='modal-content-projects'>
             <button onClick={handleLeftArrow} style={{marginLeft: '1%'}}>{"<"}</button>
             <div className='project-card'>
-                <p>{projects[index]["title"]}</p>
-                <p>{projects[index]["body"]}</p>
-                <a href={projects[index]["link"]}>GitHub Link</a>
+                <p style={{flex: 1, textAlign: 'center'}}>{projects[index]["title"]}</p>
+                <div className='project-body'>
+                    <p style={{flex: 1, textAlign: 'center'}}>{projects[index]["body"]}</p>
+                </div>
+                <a style={{flex: 1, justifyContent: 'center', alignItems: 'center', display: 'flex'}} href={projects[index]["link"]}>GitHub Link</a>
             </div>
             <button onClick={handleRightArrow} style={{marginRight: '1%'}}>{">"}</button>
         </div>

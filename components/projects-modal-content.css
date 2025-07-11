@@ -11,4 +11,11 @@
     background-color: black;
     margin: 5px;
     height: 90%;
+    flex-direction: column;
+}
+
+.project-body {
+    background-color: grey;
+    margin: 0px 5% 3% 5%;
+    height: 70%;
 }
