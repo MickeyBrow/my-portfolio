@@ -5,14 +5,14 @@ function ProjectsModal() {
     const [index, setIndex] = useState(0)
     const projects = {
         "0": {
-            "title": "Budget Tracker",
-            "body": "Body",
-            "link": "link"
-        },
-        "1": {
             "title": "This portfolio!",
             "body": "Body",
-            "link": "link"
+            "link": "https://github.com/MickeyBrow/my-portfolio"
+        },
+        "1": {
+            "title": "Budget Tracker",
+            "body": "Body",
+            "link": "https://github.com/MickeyBrow/budget-tracker"
         },
     }
 
