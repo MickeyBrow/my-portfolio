@@ -83,7 +83,7 @@ function App({signOutFunc}) {
           ))}
         </div>
         {mainModal && 
-        <DraggableResizeableModal title={mainModal[0]} onClose={() => handleClose(mainModal)}>
+        <DraggableResizeableModal title={mainModal[0]} onClose={() => handleClose(mainModal)} icon={icons_data[mainModal[0]][0]}>
           {mainModal[1]}
         </DraggableResizeableModal>}
         <div>
