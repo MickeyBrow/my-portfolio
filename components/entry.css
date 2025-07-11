@@ -1,0 +1,12 @@
+.signInContainer {
+    display: flex;
+    flex-direction: column;
+    background-color: honeydew;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+}
+.signInContainer p {
+    color: black;
+}

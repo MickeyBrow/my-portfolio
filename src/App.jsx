@@ -11,7 +11,7 @@ import ContactModal from '../components/contact-modal-content.jsx'
 import ProjectsModal from '../components/projects-modal-content.jsx'
 import AboutModal from '../components/about-modal-content.jsx'
 
-function App() {
+function App({signOutFunc}) {
   const [mainModal, setMainModal] = useState(null)
   const [iconLookup, setIconLookup] = useState({"Contact": "none", "Projects": "none", "About": "none"})  
   
@@ -87,7 +87,7 @@ function App() {
           {mainModal[1]}
         </DraggableResizeableModal>}
         <div>
-          <Toolbar images={icons_data} css_types={iconLookup} clickFunc={handleClick}/>
+          <Toolbar images={icons_data} css_types={iconLookup} clickFunc={handleClick} signOut={signOutFunc}/>
         </div>
       </div>
     </>
