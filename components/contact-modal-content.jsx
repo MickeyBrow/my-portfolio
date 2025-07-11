@@ -6,6 +6,8 @@ function ContactModal() {
     const [alreadyEmailed, setAlreadyEmailed] = useState(false)
     const form = useRef()
 
+    const second_screen_info = ""
+
     const sendEmail = (e) => {
         e.preventDefault();
     
@@ -16,11 +18,13 @@ function ContactModal() {
           .then(
             () => {
               console.log('SUCCESS!');
-              setAlreadyEmailed(true)
+              second_screen_info = "Email sent!"
             },
             (error) => {
               console.log('FAILED...', error.text);
+              second_screen_info = "Something went wrong!"
             },
+            setAlreadyEmailed(true)
           );
     };
 
@@ -28,7 +32,7 @@ function ContactModal() {
         <>
             {alreadyEmailed ?
             <>
-                <p>Email Already sent!</p>
+                <p>{second_screen_info}</p>
             </> 
             :
             <>
