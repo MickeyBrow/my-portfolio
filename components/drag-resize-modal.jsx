@@ -3,7 +3,7 @@ import Draggable from 'react-draggable'
 import computer from '../src/assets/computer.png'
 import './drag-resize-modal.css'
 
-function DraggableResizeableModal({title, onClose, children}) {
+function DraggableResizeableModal({title, onClose, children, icon}) {
     const [isEnlarged, setIsEnlarged] = useState(false)
     const nodeRef = useRef(null)
 
@@ -36,7 +36,7 @@ function DraggableResizeableModal({title, onClose, children}) {
                 <Draggable nodeRef={nodeRef}>
                     <div className='modal' ref={nodeRef}>
                         <div className='topBar'>
-                            <img src={computer} />
+                            <img src={icon} />
                             <p>{title}</p>
                             <div className='controls'>
                                 <button className='controls-btn' onClick={handleOnEnlarge}>O</button>

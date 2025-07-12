@@ -17,7 +17,7 @@ function AboutModal() {
                 <div className="modal-left">
                     <img src={myInfo["picture"]} style={{width: '100%', height: '20%'}}/>
                     <p>{myInfo["name"]}</p>
-                    <p>{myInfo["description"]}</p>
+                    <p style={{textAlign: 'center', fontSize: 'smaller'}}>{myInfo["description"]}</p>
                 </div>
                 <div className="modal-right">
                     <div style={{display: 'flex'}}>
@@ -28,7 +28,7 @@ function AboutModal() {
                             <div style={{display: 'flex', flex: '2', margin: '5px'}}>
                                 <div>
                                     <p>BS in Electrical and Computer Engineering</p>
-                                    <p>university of colorado</p>
+                                    <p>University of Colorado</p>
                                     <p>2018-2022</p>
                                 </div>
                                 <img src={collegePicture} style={{width: '50px', height: '50px'}}/>
@@ -41,11 +41,11 @@ function AboutModal() {
                                     <p>Skills</p>
                                 </div>
                                 <div className='content-body'>
-                                    <button onClick={() => setIsSkills(!isSkills)}>x</button>
                                     <p>Python</p>
                                     <p>Javascript</p>
                                     <p>C/C++</p>
                                     <p>Elixir</p>
+                                    <button style={{float: 'right'}} onClick={() => setIsSkills(!isSkills)}>x</button>
                                 </div>
                             </>
                             : 
@@ -54,10 +54,10 @@ function AboutModal() {
                                     <p>Software</p>
                                 </div>
                                 <div className='content-body'>
-                                    <button onClick={() => setIsSkills(!isSkills)}>x</button>
                                     <p>Github</p>
                                     <p>Insomnia</p>
                                     <p>VS Code</p>
+                                    <button style={{float: 'right'}} onClick={() => setIsSkills(!isSkills)}>x</button>
                                 </div>
                             </>
                             }
@@ -81,7 +81,7 @@ function AboutModal() {
                             <div className='experience-line'>
                                 <div className='experience-left'>
                                     <p>Teacher</p>
-                                    <p>DPS</p>
+                                    <p>Denver Public Schools</p>
                                 </div>
                                 <div className='experience-right'>
                                     <p>Jan 2024 - Present</p>
