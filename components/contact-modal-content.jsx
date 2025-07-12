@@ -4,9 +4,8 @@ import emailjs from '@emailjs/browser';
 
 function ContactModal() {
     const [alreadyEmailed, setAlreadyEmailed] = useState(false)
+    const [second_screen_info, setSecondScreenInfo] = useState("")
     const form = useRef()
-
-    let second_screen_info = ""
 
     const sendEmail = (e) => {
         e.preventDefault();
@@ -18,12 +17,13 @@ function ContactModal() {
           .then(
             () => {
               console.log('SUCCESS!');
-              second_screen_info = "Email sent!"
+              setSecondScreenInfo("Email sent!")
               setAlreadyEmailed(true)
             },
             (error) => {
               console.log('FAILED...', error.text);
-              second_screen_info = "Something went wrong!"
+              setSecondScreenInfo("Something went wrong!")
+              setAlreadyEmailed(true)
             },
           );
     };
