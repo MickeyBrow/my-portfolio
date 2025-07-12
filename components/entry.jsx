@@ -10,7 +10,7 @@ function Entry({signInFunc}) {
                     <img src={user_icon}/>
                 </div>
                 <p>User</p>
-                <button onClick={signInFunc}>Enter</button>
+                <button onClick={signInFunc}>Sign In</button>
             </div>
         </>
     )
