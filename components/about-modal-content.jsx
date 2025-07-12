@@ -28,7 +28,7 @@ function AboutModal() {
                             <div style={{display: 'flex', flex: '2', margin: '5px'}}>
                                 <div>
                                     <p>BS in Electrical and Computer Engineering</p>
-                                    <p>university of colorado</p>
+                                    <p>University of Colorado</p>
                                     <p>2018-2022</p>
                                 </div>
                                 <img src={collegePicture} style={{width: '50px', height: '50px'}}/>

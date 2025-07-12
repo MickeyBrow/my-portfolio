@@ -6,14 +6,18 @@ import resume from '../src/assets/resume.png'
 import './toolbar.css'
 
 function Toolbar({images, css_types, clickFunc, signOut}) {
-    const [isHovering, setIsHovering] = useState(false)
+    const [isSignOutHovering, setIsSignOutHovering] = useState(false)
+    let mouseX = 0
+    let mouseY = 0
 
-    const handleMouseEnter = () => {
-        setIsHovering(true);
+    const handleMouseEnter = (e) => {
+        mouseX = e.clientX
+        mouseY = e.clientY
+        setIsSignOutHovering(true)
     }
 
     const handleMouseLeave = () => {
-        setIsHovering(false);
+        setIsSignOutHovering(false)
     }
 
     const handleToolbarClass = (key) => {
@@ -31,7 +35,12 @@ function Toolbar({images, css_types, clickFunc, signOut}) {
         <>
             <div className='toolbar'>
                 <div className='left-toolbar'>
-                    <div className='toolbar-icon'>
+                    {isSignOutHovering ? (
+                        <div style={{position: 'absolute', top: mouseY-20, left: mouseX + 20, backgroundColor: 'black', borderRadius: '5px'}} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+                            <p style={{margin: '5px'}}>click here to sign out!</p>
+                        </div>
+                    ) : null}
+                    <div className='toolbar-icon' onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
                         <img src={start} onClick={signOut} />
                     </div>
                     <div className='toolbar-input'>
@@ -49,13 +58,7 @@ function Toolbar({images, css_types, clickFunc, signOut}) {
                     ))}
                 </div>
                 <div className='right-toolbar'>
-                    {isHovering ? (
-                        <div className='textbox'>
-                            <p>Textbox</p>
-                            <p>Internet Access</p>
-                        </div>
-                    ) : null}
-                    <div className='toolbar-icon' onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+                    <div className='toolbar-icon'>
                         <img src={wifi} />
                     </div>
                     <div className='toolbar-icon'>

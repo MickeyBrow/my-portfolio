@@ -97,6 +97,18 @@
     align-items: flex-start;
     padding: 10px;
 }
+.start-textbox {
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    height: 50px;
+    width: 100px;
+    margin-bottom: 110px;
+    word-wrap: break-word;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
 .textbox p {
     font-size:  x-small;
 }
