@@ -3,6 +3,7 @@ import Icons from '../components/icons'
 import contact from '../src/assets/contact.png'
 import projects from '../src/assets/projects.png'
 import about from '../src/assets/about.png'
+import wordle from '../src/assets/wordle.png'
 import './App.css'
 import Toolbar from '../components/toolbar'
 import DraggableResizeableModal from '../components/drag-resize-modal.jsx'
@@ -13,12 +14,13 @@ import AboutModal from '../components/about-modal-content.jsx'
 
 function App({signOutFunc}) {
   const [mainModal, setMainModal] = useState(null)
-  const [iconLookup, setIconLookup] = useState({"Contact": "none", "Projects": "none", "About": "none"})  
+  const [iconLookup, setIconLookup] = useState({"Contact": "none", "Projects": "none", "About": "none", "Wordle": "none"})  
   
   const icons_data = {
     "Contact": [contact, "Contact"],
     "Projects": [projects, "Projects"],
-    "About": [about, "About Me!"]
+    "About": [about, "About Me!"],
+    "Wordle": [wordle, "Wordle"]
   }
 
   function handleClick(opt) {
@@ -36,7 +38,10 @@ function App({signOutFunc}) {
           break
         case "About":
           background = ["About", "background"]
-          break 
+          break
+        case "Wordle":
+          background = ["Wordle", "background"]
+          break
       }
     }
 
@@ -53,6 +58,10 @@ function App({signOutFunc}) {
         setMainModal(["About", <AboutModal/>])
         active = ["About", "active"]
         break
+      case "Wordle":
+        setMainModal(["Wordle", null])
+        active = ["Wordle", "active"]
+        break
     }
     if (background) placeholder[background[0]] = background[1]
     placeholder[active[0]] = active[1]
@@ -63,14 +72,17 @@ function App({signOutFunc}) {
     setMainModal(null)
     switch(current[0]) {
       case "Contact":
-        setIconLookup({"Contact": "none", "Projects": iconLookup["Projects"], "About": iconLookup["About"]})
+        setIconLookup({"Contact": "none", "Projects": iconLookup["Projects"], "About": iconLookup["About"], "Wordle": iconLookup["Wordle"]})
         break
       case "Projects":
-        setIconLookup({"Contact": iconLookup["Contact"], "Projects": "none", "About": iconLookup["About"]})
+        setIconLookup({"Contact": iconLookup["Contact"], "Projects": "none", "About": iconLookup["About"], "Wordle": iconLookup["Wordle"]})
         break
       case "About":
-        setIconLookup({"Contact": iconLookup["Contact"], "Projects": iconLookup["Projects"], "About": "none"})
-        break 
+        setIconLookup({"Contact": iconLookup["Contact"], "Projects": iconLookup["Projects"], "About": "none", "Wordle": iconLookup["Wordle"]})
+        break
+      case "Wordle":
+        setIconLookup({"Contact": iconLookup["Contact"], "Projects": iconLookup["Projects"], "About": iconLookup["About"], "Wordle": "none"})
+        break
     }
   }
 
