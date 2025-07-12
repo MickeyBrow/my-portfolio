@@ -1,3 +1,27 @@
 .modal-content-worlde {
     background-color: brown;
+    justify-content: center;
+    align-items: center;
+}
+.worlde-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.wordle-row {
+    display: flex;
+    flex: 1;
+}
+.wordle-letter {
+    background-color: grey;
+    border-width: 2px;
+    border-style: solid;
+    border-color: black;
+    margin-right: 2%;
+    margin-left: 2%;
+    font-size: xx-large;
+    padding: 10%
+}
+.worddle-submit {
+    display: flex;
 }

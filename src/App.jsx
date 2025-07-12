@@ -11,6 +11,7 @@ import DraggableResizeableModal from '../components/drag-resize-modal.jsx'
 import ContactModal from '../components/contact-modal-content.jsx'
 import ProjectsModal from '../components/projects-modal-content.jsx'
 import AboutModal from '../components/about-modal-content.jsx'
+import WordleModal from '../components/wordle-modal-content.jsx'
 
 function App({signOutFunc}) {
   const [mainModal, setMainModal] = useState(null)
@@ -59,7 +60,7 @@ function App({signOutFunc}) {
         active = ["Projects", "active"]
         break
       case "Wordle":
-        setMainModal(["Wordle", null])
+        setMainModal(["Wordle", <WordleModal/>])
         active = ["Wordle", "active"]
         break
     }
