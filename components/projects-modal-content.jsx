@@ -40,7 +40,7 @@ function ProjectsModal() {
                         <p>Languages & Programs used:</p>
                         <ul>
                             {projects[index]["skills"].map((skill) => (
-                                <li style={{display: 'inline-block', marginRight: '5%'}}>{skill}</li>
+                                <li key={skill} style={{display: 'inline-block', marginRight: '5%'}}>{skill}</li>
                             ))}
                         </ul>
                     </div>
