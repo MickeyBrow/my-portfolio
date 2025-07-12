@@ -30,14 +30,14 @@ function App({signOutFunc}) {
 
     if (mainModal) {
       switch(mainModal[0]) {
+        case "About":
+          background = ["About", "background"]
+          break
         case "Contact":
           background = ["Contact", "background"]
           break
         case "Projects":
           background = ["Projects", "background"]
-          break
-        case "About":
-          background = ["About", "background"]
           break
         case "Wordle":
           background = ["Wordle", "background"]
@@ -46,6 +46,10 @@ function App({signOutFunc}) {
     }
 
     switch(opt) {
+      case "About":
+        setMainModal(["About", <AboutModal/>])
+        active = ["About", "active"]
+        break
       case "Contact":
         setMainModal(["Contact", <ContactModal/>])
         active = ["Contact", "active"]
@@ -53,10 +57,6 @@ function App({signOutFunc}) {
       case "Projects":
         setMainModal(["Projects", <ProjectsModal/>])
         active = ["Projects", "active"]
-        break
-      case "About":
-        setMainModal(["About", <AboutModal/>])
-        active = ["About", "active"]
         break
       case "Wordle":
         setMainModal(["Wordle", null])
@@ -71,14 +71,14 @@ function App({signOutFunc}) {
   function handleClose(current) {
     setMainModal(null)
     switch(current[0]) {
+      case "About":
+        setIconLookup({"Contact": iconLookup["Contact"], "Projects": iconLookup["Projects"], "About": "none", "Wordle": iconLookup["Wordle"]})
+        break
       case "Contact":
         setIconLookup({"Contact": "none", "Projects": iconLookup["Projects"], "About": iconLookup["About"], "Wordle": iconLookup["Wordle"]})
         break
       case "Projects":
         setIconLookup({"Contact": iconLookup["Contact"], "Projects": "none", "About": iconLookup["About"], "Wordle": iconLookup["Wordle"]})
-        break
-      case "About":
-        setIconLookup({"Contact": iconLookup["Contact"], "Projects": iconLookup["Projects"], "About": "none", "Wordle": iconLookup["Wordle"]})
         break
       case "Wordle":
         setIconLookup({"Contact": iconLookup["Contact"], "Projects": iconLookup["Projects"], "About": iconLookup["About"], "Wordle": "none"})
