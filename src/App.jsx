@@ -16,9 +16,9 @@ function App({signOutFunc}) {
   const [iconLookup, setIconLookup] = useState({"Contact": "none", "Projects": "none", "About": "none"})  
   
   const icons_data = {
-    "Contact": [contact, "Contact"],
+    "About": [about, "About Me!"],
     "Projects": [projects, "Projects"],
-    "About": [about, "About Me!"]
+    "Contact": [contact, "Contact"],
   }
 
   function handleClick(opt) {
