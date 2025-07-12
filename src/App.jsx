@@ -17,9 +17,9 @@ function App({signOutFunc}) {
   const [iconLookup, setIconLookup] = useState({"Contact": "none", "Projects": "none", "About": "none", "Wordle": "none"})  
   
   const icons_data = {
-    "Contact": [contact, "Contact"],
-    "Projects": [projects, "Projects"],
     "About": [about, "About Me!"],
+    "Projects": [projects, "Projects"],
+    "Contact": [contact, "Contact"],
     "Wordle": [wordle, "Wordle"]
   }
 
