@@ -9,7 +9,13 @@ function WordleModal() {
     const [fifthRow, setFifthRow] = useState([" ", " ", " ", " ", " "])
     const [index, setIndex] = useState(0)
     const [randomWord, setRandomWord] = useState("")
-    const [letterCss, setLetterCss] = useState(["wordle-letter-absent", "wordle-letter-absent", "wordle-letter-absent", "wordle-letter-absent", "wordle-letter-absent"])
+    const [letterCss, setLetterCss] = useState([
+        ["wordle-letter-absent", "wordle-letter-absent", "wordle-letter-absent", "wordle-letter-absent", "wordle-letter-absent"],
+        ["wordle-letter-absent", "wordle-letter-absent", "wordle-letter-absent", "wordle-letter-absent", "wordle-letter-absent"],
+        ["wordle-letter-absent", "wordle-letter-absent", "wordle-letter-absent", "wordle-letter-absent", "wordle-letter-absent"],
+        ["wordle-letter-absent", "wordle-letter-absent", "wordle-letter-absent", "wordle-letter-absent", "wordle-letter-absent"],
+        ["wordle-letter-absent", "wordle-letter-absent", "wordle-letter-absent", "wordle-letter-absent", "wordle-letter-absent"]
+    ])
 
     async function getWord() {
         const response = await fetch("https://random-word-api.herokuapp.com/word?length=5")
@@ -30,27 +36,23 @@ function WordleModal() {
         fifthRow: setFifthRow
     }
 
-    const handleOnSubmit = async (index) => {
-        const input = document.getElementById("wordle-input")
-        const word = input.value.toLowerCase()
-        checkWord(word)
-        Object.values(rowLookUp)[index](word.split(""))
-        setIndex(index + 1)
-        input.value = ""
+    const styleWord = (word, rowInd) => {
+        let cssLookUp = [...letterCss]
+        for (let i = 0; i < word.length; i++) {
+            if (word[i] === randomWord[i]) cssLookUp[rowInd][i] = "wordle-letter-correct"
+            else if (randomWord.includes(word[i])) cssLookUp[rowInd][i] = "wordle-letter-present"
+        }
+        setLetterCss(cssLookUp)
     }
 
-    const checkWord = (word) => {
-        let letter_css = []
-        for (let i = 0; i < word.length; i++) {
-            if (word[i] == randomWord[i]) {
-                letter_css[i] = "wordle-letter-correct"
-            } else if (randomWord.includes(word[i])) {
-                letter_css[i] = "wordle-letter-present"
-            } else {
-                letter_css[i] = "wordle-letter-absent"
-            }
-        }
-        setLetterCss(letter_css)
+    const handleOnSubmit = async (ind) => {
+        const input = document.getElementById("wordle-input")
+        const word = input.value.toLowerCase()
+        styleWord(word, ind)
+        Object.values(rowLookUp)[ind](word.split(""))
+        setIndex(ind + 1)
+        input.value = ""
+        console.log(randomWord)
     }
 
     return (
@@ -59,7 +61,7 @@ function WordleModal() {
                 {rowsArray.map((row, rowIndex) => (
                     <div key={rowIndex} className='wordle-row'>
                         {row.map((letter, i) => (
-                            <div key={i} className={letterCss[i]}>{letter}</div>
+                            <div key={i} className={letterCss[rowIndex][i]}>{letter}</div>
                         ))}
                     </div>
                 ))}
@@ -71,4 +73,5 @@ function WordleModal() {
         </div>
     )
 }
+
 export default WordleModal
