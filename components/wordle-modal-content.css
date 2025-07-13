@@ -1,27 +1,38 @@
 .modal-content-worlde {
-    background-color: brown;
     justify-content: center;
     align-items: center;
+    height: 100%;
 }
 .worlde-grid {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center; /* Keep this to center the rows vertically within the grid */
+    width: 60%; /* Keep this to set the width of the grid */
+    margin: 2% auto; /* This will center the grid horizontally */
 }
 .wordle-row {
     display: flex;
     flex: 1;
+    width: 100%;
+    justify-content: space-evenly;
+    margin: 0 0 2% 0
 }
 .wordle-letter {
     background-color: grey;
     border-width: 2px;
     border-style: solid;
     border-color: black;
-    margin-right: 2%;
-    margin-left: 2%;
-    font-size: xx-large;
-    padding: 10%
+    font-size: medium;
+    width: 50px; /* Set a fixed width */
+    height: 50px; /* Set a fixed height to match the width */
+    text-align: center;
+    display: flex; /* Add display flex */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
 }
-.worddle-submit {
+.wordle-submit {
     display: flex;
+    justify-content: center;
+    align-items: center;
 }
