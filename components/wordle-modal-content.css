@@ -18,7 +18,34 @@
     justify-content: space-evenly;
     margin: 0 0 2% 0
 }
-.wordle-letter {
+
+.wordle-letter-correct {
+    background-color: green;
+    border-width: 2px;
+    border-style: solid;
+    border-color: black;
+    font-size: medium;
+    width: 50px; /* Set a fixed width */
+    height: 50px; /* Set a fixed height to match the width */
+    text-align: center;
+    display: flex; /* Add display flex */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+}
+.wordle-letter-present {
+    background-color: yellow;
+    border-width: 2px;
+    border-style: solid;
+    border-color: black;
+    font-size: medium;
+    width: 50px; /* Set a fixed width */
+    height: 50px; /* Set a fixed height to match the width */
+    text-align: center;
+    display: flex; /* Add display flex */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+}
+.wordle-letter-absent {
     background-color: grey;
     border-width: 2px;
     border-style: solid;
@@ -31,6 +58,7 @@
     justify-content: center; /* Center horizontally */
     align-items: center; /* Center vertically */
 }
+
 .wordle-submit {
     display: flex;
     justify-content: center;

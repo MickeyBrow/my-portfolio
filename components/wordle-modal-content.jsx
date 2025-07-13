@@ -9,9 +9,10 @@ function WordleModal() {
     const [fifthRow, setFifthRow] = useState([" ", " ", " ", " ", " "])
     const [index, setIndex] = useState(0)
     const [randomWord, setRandomWord] = useState("")
+    const [letterCss, setLetterCss] = useState(["wordle-letter-absent", "wordle-letter-absent", "wordle-letter-absent", "wordle-letter-absent", "wordle-letter-absent"])
 
     async function getWord() {
-        const response = await fetch("https://random-word-api.herokuapp.com/word?number=5")
+        const response = await fetch("https://random-word-api.herokuapp.com/word?length=5")
         const data = await response.json();
         setRandomWord(data[0])
     }
@@ -20,45 +21,48 @@ function WordleModal() {
         getWord()
     }, [])
 
-    const setFunctions = [setFirstRow, setSecondRow, setThirdRow, setFourthRow, setFifthRow]
+    const rowsArray = [firstRow, secondRow, thirdRow, fourthRow, fifthRow]
+    const rowLookUp = {
+        firstRow: setFirstRow,
+        secondRow: setSecondRow,
+        thirdRow: setThirdRow,
+        fourthRow: setFourthRow,
+        fifthRow: setFifthRow
+    }
 
     const handleOnSubmit = async (index) => {
         const input = document.getElementById("wordle-input")
-        const word = input.value.toUpperCase()
-        setFunctions[index](word.split(""))
+        const word = input.value.toLowerCase()
+        checkWord(word)
+        Object.values(rowLookUp)[index](word.split(""))
         setIndex(index + 1)
         input.value = ""
-        console.log(randomWord)
+    }
+
+    const checkWord = (word) => {
+        let letter_css = []
+        for (let i = 0; i < word.length; i++) {
+            if (word[i] == randomWord[i]) {
+                letter_css[i] = "wordle-letter-correct"
+            } else if (randomWord.includes(word[i])) {
+                letter_css[i] = "wordle-letter-present"
+            } else {
+                letter_css[i] = "wordle-letter-absent"
+            }
+        }
+        setLetterCss(letter_css)
     }
 
     return (
         <div className='modal-content-worlde'>
             <div className='worlde-grid'>
-                <div className='wordle-row'>
-                    {firstRow.map((letter, i) => (
-                        <div key={i} className='wordle-letter'>{letter}</div>
-                    ))}
-                </div>
-                <div className='wordle-row'>
-                    {secondRow.map((letter, i) => (
-                        <div key={i} className='wordle-letter'>{letter}</div>
-                    ))}
-                </div>
-                <div className='wordle-row'>
-                    {thirdRow.map((letter, i) => (
-                        <div key={i} className='wordle-letter'>{letter}</div>
-                    ))}
-                </div>
-                <div className='wordle-row'>
-                    {fourthRow.map((letter, i) => (
-                        <div key={i} className='wordle-letter'>{letter}</div>
-                    ))}
-                </div>
-                <div className='wordle-row'>
-                    {fifthRow.map((letter, i) => (
-                        <div key={i} className='wordle-letter'>{letter}</div>
-                    ))}
-                </div>
+                {rowsArray.map((row, rowIndex) => (
+                    <div key={rowIndex} className='wordle-row'>
+                        {row.map((letter, i) => (
+                            <div key={i} className={letterCss[i]}>{letter}</div>
+                        ))}
+                    </div>
+                ))}
             </div>
             <div className='wordle-submit'>
                 <input type='text' id="wordle-input" maxLength="5" />
