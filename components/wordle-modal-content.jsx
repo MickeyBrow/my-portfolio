@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import './wordle-modal-content.css'
 
 function WordleModal() {
+    const [tutorialModalOpen, SetIsTutorialModalOpen] = useState(true)
     const [firstRow, setFirstRow] = useState([" ", " ", " ", " ", " "])
     const [secondRow, setSecondRow] = useState([" ", " ", " ", " ", " "])
     const [thirdRow, setThirdRow] = useState([" ", " ", " ", " ", " "])
@@ -56,21 +57,42 @@ function WordleModal() {
     }
 
     return (
-        <div className='modal-content-worlde'>
-            <div className='worlde-grid'>
-                {rowsArray.map((row, rowIndex) => (
-                    <div key={rowIndex} className='wordle-row'>
-                        {row.map((letter, i) => (
-                            <div key={i} className={letterCss[rowIndex][i]}>{letter}</div>
-                        ))}
+        <>
+            {tutorialModalOpen && 
+                <>
+                    <div className='tutorial-modal'>
+                        <button onClick={() => SetIsTutorialModalOpen(false)}>X</button>
+                        <div>
+                            <p>How to play</p>
+                            <p>Guess the worlde in 5 tries.</p>
+                            <ul>
+                                <li>Each guess must be a vlid 5 letter word.</li>
+                                <li>The color of the tiles will change to show how close your guess was to the word.</li>
+                            </ul>
+                            <p>Examples:</p>
+                            <div>
+                                <p>W is in the word and in the correct spot.</p>
+                            </div>
+                        </div>
                     </div>
-                ))}
+                </>
+            }
+            <div className='modal-content-worlde'>
+                <div className='worlde-grid'>
+                    {rowsArray.map((row, rowIndex) => (
+                        <div key={rowIndex} className='wordle-row'>
+                            {row.map((letter, i) => (
+                                <div key={i} className={letterCss[rowIndex][i]}>{letter}</div>
+                            ))}
+                        </div>
+                    ))}
+                </div>
+                <div className='wordle-submit'>
+                    <input type='text' id="wordle-input" maxLength="5" />
+                    <button style={{marginLeft: '2%'}} onClick={() => handleOnSubmit(index)}>Submit</button>
+                </div>
             </div>
-            <div className='wordle-submit'>
-                <input type='text' id="wordle-input" maxLength="5" />
-                <button style={{marginLeft: '2%'}} onClick={() => handleOnSubmit(index)}>Submit</button>
-            </div>
-        </div>
+        </>
     )
 }
 

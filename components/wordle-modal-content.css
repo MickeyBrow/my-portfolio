@@ -3,6 +3,19 @@
     align-items: center;
     height: 100%;
 }
+
+.tutorial-modal {
+    background-color: black;
+    height: 70%;
+    width: 56%;
+    z-index: 1;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    overflow-y: scroll;
+}
+
 .worlde-grid {
     display: flex;
     flex-direction: column;
