@@ -37,6 +37,12 @@ function WordleModal() {
         fifthRow: setFifthRow
     }
 
+    const tutortialLookUP = {
+        "word": ["tutortial-letter-correct", "tutortial-letter-absent", "tutortial-letter-absent", "tutortial-letter-absent"],
+        "home": ["tutortial-letter-absent", "tutortial-letter-absent", "tutortial-letter-present", "tutortial-letter-absent"],
+        "maid": ["tutortial-letter-absent", "tutortial-letter-absent", "tutortial-letter-absent", "tutortial-letter-absent"]
+    }
+
     const styleWord = (word, rowInd) => {
         let cssLookUp = [...letterCss]
         for (let i = 0; i < word.length; i++) {
@@ -61,7 +67,7 @@ function WordleModal() {
             {tutorialModalOpen && 
                 <>
                     <div className='tutorial-modal'>
-                        <button onClick={() => SetIsTutorialModalOpen(false)}>X</button>
+                        <button style={{float: 'right'}}onClick={() => SetIsTutorialModalOpen(false)}>X</button>
                         <div>
                             <p>How to play</p>
                             <p>Guess the worlde in 5 tries.</p>
@@ -70,8 +76,29 @@ function WordleModal() {
                                 <li>The color of the tiles will change to show how close your guess was to the word.</li>
                             </ul>
                             <p>Examples:</p>
-                            <div>
+                            <div className='example-row'>
+                                <div className='example-row-word'>
+                                    {["w", "o", "r", "d"].map((letter, i) => (
+                                        <div key={i} className={tutortialLookUP["word"][i]}>{letter}</div>
+                                    ))}
+                                </div>
                                 <p>W is in the word and in the correct spot.</p>
+                            </div>
+                            <div className='example-row'>
+                                <div className='example-row-word'>
+                                    {["h", "o", "m", "e"].map((letter, i) => (
+                                        <div key={i} className={tutortialLookUP["home"][i]}>{letter}</div>
+                                    ))}
+                                </div>
+                                <p>M is in the word but in the wrong spot.</p>
+                            </div>
+                            <div className='example-row'>
+                                <div className='example-row-word'>
+                                    {["m", "a", "i", "d"].map((letter, i) => (
+                                        <div key={i} className={tutortialLookUP["maid"][i]}>{letter}</div>
+                                    ))}
+                                </div>
+                                <p>None of the letters are present here.</p>
                             </div>
                         </div>
                     </div>
