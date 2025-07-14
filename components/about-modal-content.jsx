@@ -41,11 +41,13 @@ function AboutModal() {
                                     <p>Skills</p>
                                 </div>
                                 <div className='content-body'>
-                                    <p>Python</p>
-                                    <p>Javascript</p>
-                                    <p>C/C++</p>
-                                    <p>Elixir</p>
-                                    <button style={{float: 'right'}} onClick={() => setIsSkills(!isSkills)}>x</button>
+                                    <button onClick={() => setIsSkills(!isSkills)}>{">"}</button>
+                                    <ul>
+                                        <li>Python</li>
+                                        <li>Javascript</li>
+                                        <li>C/C++</li>
+                                        <li>Elixir</li>
+                                    </ul>
                                 </div>
                             </>
                             : 
@@ -57,7 +59,7 @@ function AboutModal() {
                                     <p>Github</p>
                                     <p>Insomnia</p>
                                     <p>VS Code</p>
-                                    <button style={{float: 'right'}} onClick={() => setIsSkills(!isSkills)}>x</button>
+                                    <button onClick={() => setIsSkills(!isSkills)}>x</button>
                                 </div>
                             </>
                             }
@@ -71,8 +73,8 @@ function AboutModal() {
                         <div className='content-body'>
                             <div className='experience-line'>
                                 <div className='experience-left'>
-                                    <p>Software Engineer</p>
-                                    <p>Podium</p>
+                                    <p style={{fontWeight: 'bolder'}}>Software Engineer</p>
+                                    <p><i>Podium</i></p>
                                 </div>
                                 <div className='experience-right'>
                                     <p>Jun 2022 - Dec 2022</p>
@@ -80,8 +82,8 @@ function AboutModal() {
                             </div>
                             <div className='experience-line'>
                                 <div className='experience-left'>
-                                    <p>Teacher</p>
-                                    <p>Denver Public Schools</p>
+                                    <p style={{fontWeight: 'bolder'}}>Apprentice Teacher</p>
+                                    <p><i>Denver Public Schools</i></p>
                                 </div>
                                 <div className='experience-right'>
                                     <p>Jan 2024 - Present</p>
