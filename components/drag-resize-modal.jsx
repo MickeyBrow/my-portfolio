@@ -23,7 +23,7 @@ function DraggableResizeableModal({title, onClose, children, icon}) {
             {isEnlarged ? (
                 <div className='modal-fullscreen' ref={nodeRef}>
                     <div className='topBar-fullscreen' onClick={() => {}}>
-                        <img src={computer} />
+                        <img src={icon} />
                         <p>{title}</p>
                         <div className='controls'>
                             <button className='controls-btn' onClick={handleOnEnlarge}>O</button>
