@@ -6,4 +6,4 @@ Overall, this project is a simulated computer in where the applications are port
 
 ## Requirements and installation
 
-This project is simply a web application and takes no installation or authorization at all. All you have to do is click the link here: 
+This project is simply a web application and takes no installation or authorization at all. All you have to do is click the link here: https://mickeybrow.github.io/my-portfolio/
