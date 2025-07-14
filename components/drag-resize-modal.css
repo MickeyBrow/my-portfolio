@@ -19,9 +19,15 @@
     background-color: grey;
     display: flex;
     flex-direction: row;
-    height: 5%;
+    height: 7%;
     width: 100%;
     align-items: center;
+    border-style: solid;
+    border-width: 2px;
+    border-color:black;
+}
+.topBar-fullscreen img {
+    margin: 0 2% 2% 0;
 }
 .topBar-fullscreen .controls {
     justify-content: flex-end;
