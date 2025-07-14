@@ -130,7 +130,7 @@ function WordleModal() {
                         ))}
                     </div>
                     <div className='wordle-submit'>
-                        <input type='text' id="wordle-input" maxLength="5" />
+                        <input type='text' id="wordle-input" maxLength="5" autoComplete='off' />
                         <button style={{marginLeft: '2%'}} onClick={() => handleOnSubmit(index)}>Submit</button>
                     </div>
                 </div>

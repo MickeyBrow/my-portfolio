@@ -21,7 +21,7 @@ function ContactModal() {
               setAlreadyEmailed(true)
             },
             (error) => {
-              console.log('FAILED...', error);
+              console.log('FAILED...', error, import.meta.env.VITE_PUBLIC_KEY);
               setSecondScreenInfo("Something went wrong!")
               setAlreadyEmailed(true)
             },
