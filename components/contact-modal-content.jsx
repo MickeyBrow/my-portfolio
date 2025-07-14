@@ -21,7 +21,7 @@ function ContactModal() {
               setAlreadyEmailed(true)
             },
             (error) => {
-              console.log('FAILED...', error.text);
+              console.log('FAILED...', error);
               setSecondScreenInfo("Something went wrong!")
               setAlreadyEmailed(true)
             },
