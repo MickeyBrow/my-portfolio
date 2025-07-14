@@ -60,7 +60,6 @@ function WordleModal() {
         Object.values(rowLookUp)[ind](word.split(""))
         setIndex(ind + 1)
         input.value = ""
-        console.log(randomWord, ind)
 
         if (word === randomWord) {
             setIsGameOver([true, "win"])
