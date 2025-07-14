@@ -62,9 +62,14 @@
     flex: 2;
     margin: 5px;
 }
+.content-body ul {
+    flex: 2
+}
 .content-body button {
-    float: right;
     text-align: center;
+    width: 10%;
+    height: 10%;
+    flex: 1
 }
 
 .experience-line {
@@ -77,6 +82,9 @@
     padding: 1%;
     border-radius: 5px;
 }
+.experience-line:hover{
+    background-color: rgb(51, 51, 51);
+}
 .experience-left {
     justify-content: center;
     align-items: center;
@@ -85,4 +93,15 @@
 .experience-right {
     justify-content: flex-end;
     align-items: flex-end;
+}
+.experience-podium-hidden {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 1s ease-in-out; /* Adjust duration and timing function */
+}
+  
+.experience-podium-content {
+    max-height: 500px; /* Set a value larger than the content's potential height */
+    background-color: red;
+    margin: 0 2% 2% 2%;
 }
