@@ -62,14 +62,14 @@ function AboutModal() {
                                     <p>Skills</p>
                                 </div>
                                 <div className='content-body'>
-                                    <div style={{display: 'flex'}}>
+                                    <div style={{display: 'flex', flexDirection: 'column'}}>
+                                        <button onClick={() => setIsSkills(!isSkills)}>{"<"}</button>
                                         <ul>
                                             <li>Python</li>
                                             <li>Javascript</li>
                                             <li>C/C++</li>
                                             <li>Elixir</li>
                                         </ul>
-                                        <button onClick={() => setIsSkills(!isSkills)}>{">"}</button>
                                     </div>
                                 </div>
                             </>
@@ -79,7 +79,8 @@ function AboutModal() {
                                     <p>Software</p>
                                 </div>
                                 <div className='content-body'>
-                                    <div style={{display: 'flex'}}>
+                                    <div style={{display: 'flex', flexDirection: 'column'}}>
+                                        <button onClick={() => setIsSkills(!isSkills)}>{">"}</button>
                                         <ul>
                                             <li>Github</li>
                                             <li>Insomnia</li>
@@ -87,7 +88,6 @@ function AboutModal() {
                                             <li>VS Code</li>
                                             <li>Firebase Studio</li>
                                         </ul>
-                                        <button onClick={() => setIsSkills(!isSkills)}>{">"}</button>
                                     </div>
                                 </div>
                             </>
@@ -106,7 +106,8 @@ function AboutModal() {
                                     <p><i>Podium</i></p>
                                 </div>
                                 <div className='experience-right'>
-                                    <p>Jun 2022 - Dec 2022</p>
+                                    <p style={{flex: 2}}>Jun 2022 - Dec 2022</p>
+                                    <p style={{fontSize: 'smaller', flex: 1, color: 'grey', userSelect: 'none'}}>Click here for more info!</p>
                                 </div>
                             </div>
                             <div className={isPodiumClicked ? "experience-podium-content" : "experience-podium-hidden"}>
@@ -123,6 +124,7 @@ function AboutModal() {
                                 </div>
                                 <div className='experience-right'>
                                     <p>Jan 2024 - Present</p>
+                                    <p style={{fontSize: 'smaller', flex: 1, color: 'grey', userSelect: 'none'}}>Click here for more info!</p>
                                 </div>
                             </div>
                             <div className={isDPSClicked ? "experience-dps-content" : "experience-dps-hidden"}>
