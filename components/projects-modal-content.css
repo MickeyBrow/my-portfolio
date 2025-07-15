@@ -11,6 +11,7 @@
     margin: 5px;
     height: 90%;
     flex-direction: column;
+    border-radius: 10px;
 }
 
 .project-body {
@@ -48,4 +49,7 @@
     margin: 2%;
     padding: 2%;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5); /* Added drop shadow */
+}
+.project-programs ul {
+    column-count: 2;
 }
