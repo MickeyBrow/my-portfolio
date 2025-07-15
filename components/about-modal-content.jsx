@@ -38,7 +38,7 @@ function AboutModal() {
                     <img src={myInfo["picture"]} style={{width: '100%', height: '20%'}}/>
                     <p>{myInfo["name"]}</p>
                     <p style={{textAlign: 'center', fontSize: 'smaller'}}>{myInfo["description"]}</p>
-                    <a href={myInfo["linkedIn"]}>LinkedIn</a>
+                    <a href={myInfo["linkedIn"]} target='_blank'>LinkedIn</a>
                 </div>
                 <div className="modal-right">
                     <div style={{display: 'flex'}}>
@@ -111,6 +111,7 @@ function AboutModal() {
                                 </div>
                             </div>
                             <div className={isPodiumClicked ? "experience-podium-content" : "experience-podium-hidden"}>
+                                <p style={{fontWeight: 'bold', padding: '2%'}}>What I did at Podium:</p>
                                 <ul>
                                     {podiumExperiencePoints.map((point) => (
                                         <li>{point}</li>
@@ -128,6 +129,7 @@ function AboutModal() {
                                 </div>
                             </div>
                             <div className={isDPSClicked ? "experience-dps-content" : "experience-dps-hidden"}>
+                                <p style={{fontWeight: 'bold', padding: '2%'}}>What I did at DPS:</p>
                                 <ul>
                                     {dpsExperiencePoints.map((point) => (
                                         <li>{point}</li>

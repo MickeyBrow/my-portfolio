@@ -12,7 +12,7 @@ function ProjectsModal() {
         },
         "1": {
             "title": "Budget Tracker",
-            "body": "This was one of my first complex personal projects that I built. It was more of a learning experience than anything, giving me the chance to learn how to plan, construct, and deploy a web app by myself.",
+            "body": "This was one of my first complex personal projects that I built. It was more of a learning experience than anything, giving me the chance to learn how to plan, construct, and deploy a web app by myself!",
             "skills": ["NextJs", "CSS", "HTML", "JavaScript", "Python", "Flask"],
             "link": "https://github.com/MickeyBrow/budget-tracker"
         },
@@ -35,8 +35,14 @@ function ProjectsModal() {
             <div className='project-card'>
                 <p style={{flex: 1, textAlign: 'center'}}>{projects[index]["title"]}</p>
                 <div className='project-body'>
-                    <p style={{flex: 1, textAlign: 'center'}}>{projects[index]["body"]}</p>
-                    <div>
+                    <div className='project-purpose'>
+                        <p style={{fontWeight: 'bolder', textDecoration: 'underline'}}>Purpose of the Project:</p>
+                        <p style={{flex: 1, textAlign: 'center'}}>{projects[index]["body"]}</p>
+                    </div>
+                    <div className='project-learned'>
+                        <p>What I learned:</p>
+                    </div>
+                    <div className='project-programs'>
                         <p>Languages & Programs used:</p>
                         <ul>
                             {projects[index]["skills"].map((skill) => (
@@ -45,7 +51,7 @@ function ProjectsModal() {
                         </ul>
                     </div>
                 </div>
-                <a style={{flex: 1, justifyContent: 'center', alignItems: 'center', display: 'flex'}} href={projects[index]["link"]}>GitHub Link</a>
+                <a style={{flex: 1, justifyContent: 'center', alignItems: 'center', display: 'flex'}} href={projects[index]["link"]} target='_blank'>GitHub Link</a>
             </div>
             <button onClick={handleRightArrow} style={{marginRight: '1%'}}>{">"}</button>
         </div>

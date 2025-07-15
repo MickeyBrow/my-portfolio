@@ -14,7 +14,38 @@
 }
 
 .project-body {
-    background-color: grey;
+    background-color: rgb(99, 99, 99);
     margin: 0px 5% 3% 5%;
     height: 70%;
+    overflow-y: scroll;
+}
+
+.project-purpose {
+    border-radius: 5px;
+    border-width: 2px;
+    border-color: white;
+    border-style: solid;
+    margin: 2%;
+    padding: 2%;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5); /* Added drop shadow */
+}
+
+.project-learned {
+    border-radius: 5px;
+    border-width: 2px;
+    border-color: white;
+    border-style: solid;
+    margin: 2%;
+    padding: 2%;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5); /* Added drop shadow */
+}
+
+.project-programs {
+    border-radius: 5px;
+    border-width: 2px;
+    border-color: white;
+    border-style: solid;
+    margin: 2%;
+    padding: 2%;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5); /* Added drop shadow */
 }
