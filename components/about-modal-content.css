@@ -62,10 +62,28 @@
     flex: 2;
     margin: 5px;
 }
+.content-body ul {
+    flex: 2
+}
+.content-body button {
+    text-align: center;
+    width: 10%;
+    height: 10%;
+    flex: 1
+}
 
 .experience-line {
     display: flex;
     font-size: smaller;
+    border-width: 2px;
+    border-color: white;
+    border-style: solid;
+    margin-bottom: 2%;
+    padding: 1%;
+    border-radius: 5px;
+}
+.experience-line:hover{
+    background-color: rgb(51, 51, 51);
 }
 .experience-left {
     justify-content: center;
@@ -75,5 +93,41 @@
 .experience-right {
     justify-content: flex-end;
     align-items: flex-end;
-    align-items: flex-end;
+    display: flex;
+    flex-direction: column;
+}
+.experience-podium-hidden {
+    max-height: 0;
+    background-color: grey;
+    border-color: white;
+    border-style: none solid solid solid; /* Changed border-style */
+    margin: -8px 2% 5% 2%;
+    overflow: hidden;
+    transition: max-height 0.5s ease-in-out; /* Combine ease-in and ease-out */
+}
+  
+.experience-podium-content {
+    max-height: 1000px; /* Increase max-height to ensure enough space for content */
+    background-color: grey;
+    border-color: white; /* Removed top border-color */
+    border-style: none solid solid solid; /* Changed border-style */
+    margin: -18px 2% 5% 2%;
+}
+
+.experience-dps-hidden {
+    max-height: 0;
+    background-color: grey;
+    border-color: white;
+    border-style: none solid solid solid; /* Changed border-style */
+    margin: -8px 2% 5% 2%;
+    overflow: hidden;
+    transition: max-height 0.5s ease-in-out; /* Combine ease-in and ease-out */
+}
+  
+.experience-dps-content {
+    max-height: 1000px; /* Increase max-height to ensure enough space for content */
+    background-color: grey;
+    border-color: white; /* Removed top border-color */
+    border-style: none solid solid solid; /* Changed border-style */
+    margin: -18px 2% 5% 2%;
 }
